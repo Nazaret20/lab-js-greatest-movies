@@ -45,7 +45,7 @@ function scoresAverage(moviesArray) {
 // Iteration 4: Drama movies - Get the average of Drama Movies
 function dramaMoviesScore(moviesArray) {
   const drama = moviesArray.filter((movie) => movie.genre.includes('Drama'));
-  
+
   if (drama.length === 0) {
     return 0;
   }
@@ -79,13 +79,13 @@ function orderByYear(moviesArray) {
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 function orderAlphabetically(moviesArray) {
   const copyOfMovies = [...moviesArray];
-
   const allTitles = copyOfMovies.map((movie) => movie.title);
+  const sortedTitles = allTitles.sort();
 
-  if (allTitles.length < 20) {
-    return allTitles;
+  if (sortedTitles.length < 20) {
+    return sortedTitles;
   } else {
-    return allTitles.sort().slice(0, 20);
+    return sortedTitles.slice(0, 20);
   }
 }
 
@@ -111,6 +111,8 @@ function turnHoursToMinutes(moviesArray) {
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
 function bestYearAvg(moviesArray) {
+  if (moviesArray.length === 0) return null;
+  
   const yearByYear = {};
 
   moviesArray.map((movie) => {
@@ -142,7 +144,7 @@ function bestYearAvg(moviesArray) {
     }
   }
 
-  return `The best year was ${bestYear} with an average score of ${bestAverage}.`;
+  return `The best year was ${bestYear} with an average score of ${bestAverage}`;
 }
 
 // The following is required to make unit tests work.
